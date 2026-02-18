@@ -5,15 +5,17 @@ class ColorPickerExample2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VNLPrimaryButton(
+    return PrimaryButton(
       onPressed: () async {
-        final history = ColorHistoryStorage.of(context);
+        // Screen color picker: lets the user sample any on-screen color.
+        final history = VNLColorHistoryStorage.of(context);
         final result = await pickColorFromScreen(context, history);
         if (result != null && context.mounted) {
+          // Show a toast with the hex value and a preview swatch.
           showToast(
             context: context,
             builder: (context, overlay) {
-              return SurfaceCard(
+              return VNLSurfaceCard(
                   child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,

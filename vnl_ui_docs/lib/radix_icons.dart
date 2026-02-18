@@ -1,4 +1,4 @@
-import 'package:vnl_common_ui/vnl_ui.dart';
+import 'package:vnl_common_ui/shadcn_flutter.dart';
 
 const Map<String, IconData> kRadixIcons = {
   'zoomOut': RadixIcons.zoomOut,
@@ -306,7 +306,7 @@ const Map<String, IconData> kRadixIcons = {
   'barChart': RadixIcons.barChart,
   'badge': RadixIcons.badge,
   'backpack': RadixIcons.backpack,
-  'VNLAvatar': RadixIcons.VNLAvatar,
+  'avatar': RadixIcons.avatar,
   'aspectRatio': RadixIcons.aspectRatio,
   'arrowUp': RadixIcons.arrowUp,
   'arrowTopRight': RadixIcons.arrowTopRight,

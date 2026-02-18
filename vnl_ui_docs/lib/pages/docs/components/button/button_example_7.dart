@@ -9,7 +9,7 @@ class ButtonExample7 extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        VNLPrimaryButton(
+        PrimaryButton(
           child: Text('Disabled'),
         ),
         VNLSecondaryButton(

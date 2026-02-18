@@ -1,5 +1,8 @@
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+/// Destructive button.
+///
+/// Use to represent dangerous or irreversible actions (e.g., delete).
 class ButtonExample5 extends StatelessWidget {
   const ButtonExample5({super.key});
 

@@ -9,7 +9,7 @@ class StepperExample4 extends StatefulWidget {
 }
 
 class _StepperExample4State extends State<StepperExample4> {
-  final StepperController controller = StepperController();
+  final VNLStepperController controller = VNLStepperController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,20 +17,21 @@ class _StepperExample4State extends State<StepperExample4> {
       controller: controller,
       direction: Axis.vertical,
       steps: [
-        Step(
-          title: const Text('Step 1'),
-          icon: StepNumber(
+        VNLStep(
+          title: const Text('VNLStep 1'),
+          icon: VNLStepNumber(
             onPressed: () {
+              // Tap on the step icon to jump directly to the step.
               controller.jumpToStep(0);
             },
           ),
           contentBuilder: (context) {
-            return StepContainer(
+            return VNLStepContainer(
               actions: [
                 const VNLSecondaryButton(
                   child: Text('Prev'),
                 ),
-                VNLPrimaryButton(
+                PrimaryButton(
                     child: const Text('Next'),
                     onPressed: () {
                       controller.nextStep();
@@ -43,15 +44,15 @@ class _StepperExample4State extends State<StepperExample4> {
             );
           },
         ),
-        Step(
-          title: const Text('Step 2'),
-          icon: StepNumber(
+        VNLStep(
+          title: const Text('VNLStep 2'),
+          icon: VNLStepNumber(
             onPressed: () {
               controller.jumpToStep(1);
             },
           ),
           contentBuilder: (context) {
-            return StepContainer(
+            return VNLStepContainer(
               actions: [
                 VNLSecondaryButton(
                   child: const Text('Prev'),
@@ -59,7 +60,7 @@ class _StepperExample4State extends State<StepperExample4> {
                     controller.previousStep();
                   },
                 ),
-                VNLPrimaryButton(
+                PrimaryButton(
                     child: const Text('Next'),
                     onPressed: () {
                       controller.nextStep();
@@ -72,15 +73,15 @@ class _StepperExample4State extends State<StepperExample4> {
             );
           },
         ),
-        Step(
-          title: const Text('Step 3'),
-          icon: StepNumber(
+        VNLStep(
+          title: const Text('VNLStep 3'),
+          icon: VNLStepNumber(
             onPressed: () {
               controller.jumpToStep(2);
             },
           ),
           contentBuilder: (context) {
-            return StepContainer(
+            return VNLStepContainer(
               actions: [
                 VNLSecondaryButton(
                   child: const Text('Prev'),
@@ -88,7 +89,7 @@ class _StepperExample4State extends State<StepperExample4> {
                     controller.previousStep();
                   },
                 ),
-                VNLPrimaryButton(
+                PrimaryButton(
                     child: const Text('Finish'),
                     onPressed: () {
                       controller.nextStep();

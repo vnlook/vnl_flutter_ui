@@ -1,5 +1,9 @@
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+/// Drawer overlay opened from different screen edges.
+///
+/// Repeatedly opens nested drawers cycling through positions to showcase
+/// [openDrawer] and how to close using [closeOverlay].
 class DrawerExample1 extends StatefulWidget {
   const DrawerExample1({super.key});
 
@@ -8,16 +12,18 @@ class DrawerExample1 extends StatefulWidget {
 }
 
 class _DrawerExample1State extends State<DrawerExample1> {
+  // Sequence of positions to cycle through as drawers are stacked.
   List<OverlayPosition> positions = [
-    OverlayPosition.left,
-    OverlayPosition.left,
+    OverlayPosition.end,
+    OverlayPosition.end,
     OverlayPosition.bottom,
     OverlayPosition.bottom,
     OverlayPosition.top,
     OverlayPosition.top,
-    OverlayPosition.right,
-    OverlayPosition.right,
+    OverlayPosition.start,
+    OverlayPosition.start,
   ];
+  // Open a drawer and optionally open another from within it.
   void open(BuildContext context, int count) {
     openDrawer(
       context: context,
@@ -32,8 +38,9 @@ class _DrawerExample1State extends State<DrawerExample1> {
               children: [
                 Text('Drawer ${count + 1} at ${positions[count % positions.length].name}'),
                 const Gap(16),
-                VNLPrimaryButton(
+                PrimaryButton(
                   onPressed: () {
+                    // Open another drawer on top.
                     open(context, count + 1);
                   },
                   child: const Text('Open Another Drawer'),
@@ -41,6 +48,7 @@ class _DrawerExample1State extends State<DrawerExample1> {
                 const Gap(8),
                 VNLSecondaryButton(
                   onPressed: () {
+                    // Close the current top-most overlay.
                     closeOverlay(context);
                   },
                   child: const Text('Close Drawer'),
@@ -56,7 +64,7 @@ class _DrawerExample1State extends State<DrawerExample1> {
 
   @override
   Widget build(BuildContext context) {
-    return VNLPrimaryButton(
+    return PrimaryButton(
       onPressed: () {
         open(context, 0);
       },

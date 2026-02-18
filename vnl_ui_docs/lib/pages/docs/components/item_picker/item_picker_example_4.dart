@@ -30,13 +30,14 @@ class _ItemPickerExample4State extends State<ItemPickerExample4> {
   int selectedColor = 0;
   @override
   Widget build(BuildContext context) {
-    return VNLPrimaryButton(
+    return PrimaryButton(
       onPressed: () {
         showItemPickerDialog<NamedColor>(
           context,
           items: ItemList(colors),
           initialValue: colors[selectedColor],
-          layout: ItemPickerLayout.list,
+          // Force a list layout instead of a grid for narrower rows.
+          layout: VNLItemPickerLayout.list,
           title: const Text('Pick a color'),
           builder: (context, item) {
             return ItemPickerOption(
@@ -55,19 +56,21 @@ class _ItemPickerExample4State extends State<ItemPickerExample4> {
           (value) {
             if (value != null) {
               selectedColor = colors.indexOf(value);
+              if (context.mounted) {
+                showToast(
+                  context: context,
+                  builder: (context, overlay) {
+                    return VNLSurfaceCard(
+                      child: Text('You picked ${value.name}!'),
+                    );
+                  },
+                );
+              }
+            } else if (context.mounted) {
               showToast(
                 context: context,
                 builder: (context, overlay) {
-                  return SurfaceCard(
-                    child: Text('You picked ${value.name}!'),
-                  );
-                },
-              );
-            } else {
-              showToast(
-                context: context,
-                builder: (context, overlay) {
-                  return const SurfaceCard(
+                  return const VNLSurfaceCard(
                     child: Text('You picked nothing!'),
                   );
                 },

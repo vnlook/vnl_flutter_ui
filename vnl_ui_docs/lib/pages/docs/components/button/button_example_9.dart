@@ -9,7 +9,7 @@ class ButtonExample9 extends StatelessWidget {
       spacing: 8,
       runSpacing: 8,
       children: [
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           trailing: const Icon(Icons.add),
           child: const Text('Add'),

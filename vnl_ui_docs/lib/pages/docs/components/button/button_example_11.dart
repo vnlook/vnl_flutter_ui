@@ -11,32 +11,32 @@ class ButtonExample11 extends StatelessWidget {
       alignment: WrapAlignment.center,
       runAlignment: WrapAlignment.center,
       children: [
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.compact,
           child: const Text('Compact'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.dense,
           child: const Text('Dense'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.normal,
           child: const Text('Normal'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.comfortable,
           child: const Text('Comfortable'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.icon,
           child: const Text('Icon'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
           density: ButtonDensity.iconComfortable,
           child: const Text('Icon Comfortable'),

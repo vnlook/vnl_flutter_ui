@@ -27,7 +27,7 @@ class DataExample9State extends State<DataExample9> {
               },
             ),
             const Gap(24),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 counter.value++;
               },

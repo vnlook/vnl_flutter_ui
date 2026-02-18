@@ -35,12 +35,12 @@ class DataExample10State extends State<DataExample10> {
                   onChanged: (value) {
                     toggle.value = value;
                   },
-                  child: const Text('Toggle'),
+                  child: const Text('VNLToggle'),
                 );
               },
             ),
             const Gap(24),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 counter.value++;
               },

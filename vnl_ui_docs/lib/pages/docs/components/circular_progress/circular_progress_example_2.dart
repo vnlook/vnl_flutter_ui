@@ -1,5 +1,9 @@
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+/// Determinate circular progress indicator with controls.
+///
+/// Demonstrates binding a numeric progress value to [VNLCircularProgressIndicator]
+/// and updating it via buttons. Value should be a fraction between 0 and 1.
 class CircularProgressExample2 extends StatefulWidget {
   const CircularProgressExample2({super.key});
 
@@ -8,13 +12,15 @@ class CircularProgressExample2 extends StatefulWidget {
 }
 
 class _CircularProgressExample2State extends State<CircularProgressExample2> {
+  // Track progress in percentage (0-100) for easier mental mapping.
   double _progress = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CircularProgressIndicator(
+        VNLCircularProgressIndicator(
+          // The widget expects a normalized value [0..1].
           value: _progress.clamp(0, 100) / 100,
           size: 48,
         ),
@@ -24,24 +30,27 @@ class _CircularProgressExample2State extends State<CircularProgressExample2> {
             VNLDestructiveButton(
               onPressed: () {
                 setState(() {
+                  // Reset to 0%.
                   _progress = 0;
                 });
               },
               child: const Text('Reset'),
             ),
             const Gap(16),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 setState(() {
+                  // Decrease by 10%.
                   _progress -= 10;
                 });
               },
               child: const Text('Decrease by 10'),
             ),
             const Gap(16),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 setState(() {
+                  // Increase by 10%.
                   _progress += 10;
                 });
               },

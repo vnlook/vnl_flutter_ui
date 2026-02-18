@@ -21,7 +21,7 @@ class DataExample1State extends State<DataExample1> {
           children: [
             Text('Current Value: $counter - Rebuild Count: $rebuildCount'),
             const Gap(24),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 setState(() {
                   counter++;

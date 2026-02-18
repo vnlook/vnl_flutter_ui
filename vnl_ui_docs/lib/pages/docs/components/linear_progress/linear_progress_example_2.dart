@@ -16,7 +16,8 @@ class _LinearProgressExample2State extends State<LinearProgressExample2> {
       children: [
         SizedBox(
           width: 200,
-          child: LinearProgressIndicator(
+          child: VNLLinearProgressIndicator(
+            // Supplying a value (0.0..1.0) switches the indicator to determinate mode.
             value: value,
           ),
         ),
@@ -24,7 +25,7 @@ class _LinearProgressExample2State extends State<LinearProgressExample2> {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 setState(() {
                   value = 0;
@@ -33,7 +34,7 @@ class _LinearProgressExample2State extends State<LinearProgressExample2> {
               child: const Text('Reset'),
             ),
             const Gap(24),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 if (value + 0.1 >= 1) {
                   return;
@@ -45,7 +46,7 @@ class _LinearProgressExample2State extends State<LinearProgressExample2> {
               child: const Text('Increase'),
             ),
             const Gap(24),
-            VNLPrimaryButton(
+            PrimaryButton(
               onPressed: () {
                 if (value - 0.1 <= 0) {
                   return;

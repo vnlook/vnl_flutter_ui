@@ -2,6 +2,9 @@ import 'dart:ui';
 
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+// Demonstrates a scrollable VNLTable hooked to VNLScrollableClient with frozen
+// rows/columns and diagonal drag panning.
+
 class TableExample3 extends StatefulWidget {
   const TableExample3({super.key});
 
@@ -10,8 +13,9 @@ class TableExample3 extends StatefulWidget {
 }
 
 class _TableExample3State extends State<TableExample3> {
+  // Builds a bordered cell; amounts can be right-aligned by passing true.
   VNLTableCell buildCell(String text, [bool alignRight = false]) {
-    final theme = VNLTheme.of(context);
+    final theme = Theme.of(context);
     return VNLTableCell(
       theme: VNLTableCellTheme(
         border: WidgetStatePropertyAll(
@@ -36,29 +40,37 @@ class _TableExample3State extends State<TableExample3> {
         dragDevices: {
           PointerDeviceKind.touch,
           PointerDeviceKind.mouse,
+          PointerDeviceKind.trackpad,
         },
+        // Disable overscroll glow and bouncing to keep the table steady.
         overscroll: false,
       ),
       child: SizedBox(
         height: 400,
-        child: OutlinedContainer(
-          child: ScrollableClient(
+        child: VNLOutlinedContainer(
+          child: VNLScrollableClient(
+              // Allow simultaneous horizontal and vertical drags for panning.
               diagonalDragBehavior: DiagonalDragBehavior.free,
               builder: (context, offset, viewportSize, child) {
                 return VNLTable(
+                  // Hook the table's scroll offsets to the VNLScrollableClient.
                   horizontalOffset: offset.dx,
                   verticalOffset: offset.dy,
+                  // The viewport tells the table how much content area is visible.
                   viewportSize: viewportSize,
-                  defaultColumnWidth: const FixedTableSize(150),
-                  defaultRowHeight: const FixedTableSize(40),
-                  frozenCells: const FrozenTableData(
+                  // Fixed sizes for consistent cell dimensions.
+                  defaultColumnWidth: const VNLFixedTableSize(150),
+                  defaultRowHeight: const VNLFixedTableSize(40),
+                  // Freeze the first and fourth rows, and the first and third columns.
+                  // These rows/columns stay pinned while the rest scrolls.
+                  frozenCells: const VNLFrozenTableData(
                     frozenRows: [
-                      TableRef(0),
-                      TableRef(3),
+                      VNLTableRef(0),
+                      VNLTableRef(3),
                     ],
                     frozenColumns: [
-                      TableRef(0),
-                      TableRef(2),
+                      VNLTableRef(0),
+                      VNLTableRef(2),
                     ],
                   ),
                   rows: [
@@ -76,7 +88,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV001'),
                         buildCell('Paid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$250.00', true),
                         buildCell('Verified'),
                         buildCell('2 hours ago'),
@@ -106,7 +118,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV004'),
                         buildCell('Paid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$450.00', true),
                         buildCell('Verified'),
                         buildCell('2 weeks ago'),
@@ -136,7 +148,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV007'),
                         buildCell('Unpaid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$300.00', true),
                         buildCell('Unverified'),
                         buildCell('1 year ago'),
@@ -146,7 +158,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV008'),
                         buildCell('Paid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$250.00', true),
                         buildCell('Verified'),
                         buildCell('2 hours ago'),
@@ -176,7 +188,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV011'),
                         buildCell('Paid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$450.00', true),
                         buildCell('Verified'),
                         buildCell('2 weeks ago'),
@@ -206,7 +218,7 @@ class _TableExample3State extends State<TableExample3> {
                       cells: [
                         buildCell('INV014'),
                         buildCell('Unpaid'),
-                        buildCell('Credit Card'),
+                        buildCell('Credit VNLCard'),
                         buildCell('\$300.00', true),
                         buildCell('Unverified'),
                         buildCell('1 year ago'),

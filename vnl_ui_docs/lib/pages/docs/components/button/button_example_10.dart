@@ -11,28 +11,28 @@ class ButtonExample10 extends StatelessWidget {
       alignment: WrapAlignment.center,
       runAlignment: WrapAlignment.center,
       children: [
-        VNLPrimaryButton(
-          size: ButtonSize.xSmall,
+        PrimaryButton(
+          size: VNLButtonSize.xSmall,
           onPressed: () {},
           child: const Text('Extra Small'),
         ),
-        VNLPrimaryButton(
+        PrimaryButton(
           onPressed: () {},
-          size: ButtonSize.small,
+          size: VNLButtonSize.small,
           child: const Text('Small'),
         ),
-        VNLPrimaryButton(
-          size: ButtonSize.normal,
+        PrimaryButton(
+          size: VNLButtonSize.normal,
           onPressed: () {},
           child: const Text('Normal'),
         ),
-        VNLPrimaryButton(
-          size: ButtonSize.large,
+        PrimaryButton(
+          size: VNLButtonSize.large,
           onPressed: () {},
           child: const Text('Large'),
         ),
-        VNLPrimaryButton(
-          size: ButtonSize.xLarge,
+        PrimaryButton(
+          size: VNLButtonSize.xLarge,
           onPressed: () {},
           child: const Text('Extra Large'),
         ),

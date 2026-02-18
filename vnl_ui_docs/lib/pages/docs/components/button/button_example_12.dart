@@ -7,7 +7,7 @@ class ButtonExample12 extends StatelessWidget {
   Widget build(BuildContext context) {
     return VNLTextButton(
       onPressed: () {},
-      child: const Text('Text Button'),
+      child: const Text('Text VNLButton'),
     );
   }
 }

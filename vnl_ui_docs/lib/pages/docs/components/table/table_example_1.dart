@@ -1,5 +1,8 @@
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+// Demonstrates a basic VNLTable with a header row and body rows,
+// including right-aligned numeric cells for amounts.
+
 class TableExample1 extends StatefulWidget {
   const TableExample1({super.key});
 
@@ -8,6 +11,7 @@ class TableExample1 extends StatefulWidget {
 }
 
 class _TableExample1State extends State<TableExample1> {
+  // Helper to build a header cell with muted, semibold text.
   VNLTableCell buildHeaderCell(String text, [bool alignRight = false]) {
     return VNLTableCell(
       child: Container(
@@ -18,6 +22,7 @@ class _TableExample1State extends State<TableExample1> {
     );
   }
 
+  // Helper to build a regular body cell with optional right alignment.
   VNLTableCell buildCell(String text, [bool alignRight = false]) {
     return VNLTableCell(
       child: Container(
@@ -32,6 +37,7 @@ class _TableExample1State extends State<TableExample1> {
   Widget build(BuildContext context) {
     return VNLTable(
       rows: [
+        // Header row: typically use VNLTableHeader, but a VNLTableRow works for simple cases.
         VNLTableRow(
           cells: [
             buildHeaderCell('Invoice'),
@@ -40,11 +46,12 @@ class _TableExample1State extends State<TableExample1> {
             buildHeaderCell('Amount', true),
           ],
         ),
+        // Body rows with invoice data.
         VNLTableRow(
           cells: [
             buildCell('INV001'),
             buildCell('Paid'),
-            buildCell('Credit Card'),
+            buildCell('Credit VNLCard'),
             buildCell('\$250.00', true),
           ],
         ),
@@ -68,7 +75,7 @@ class _TableExample1State extends State<TableExample1> {
           cells: [
             buildCell('INV004'),
             buildCell('Paid'),
-            buildCell('Credit Card'),
+            buildCell('Credit VNLCard'),
             buildCell('\$450.00', true),
           ],
         ),
@@ -92,11 +99,12 @@ class _TableExample1State extends State<TableExample1> {
           cells: [
             buildCell('INV007'),
             buildCell('Unpaid'),
-            buildCell('Credit Card'),
+            buildCell('Credit VNLCard'),
             buildCell('\$300.00', true),
           ],
         ),
-        TableFooter(
+        // Footer supports spanning across columns via VNLTableCell.columnSpan.
+        VNLTableFooter(
           cells: [
             VNLTableCell(
               columnSpan: 4,

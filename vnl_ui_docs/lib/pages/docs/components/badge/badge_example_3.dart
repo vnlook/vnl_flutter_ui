@@ -1,5 +1,8 @@
 import 'package:vnl_common_ui/vnl_ui.dart';
 
+/// Outline badge style.
+///
+/// Outlined appearance for a more subtle badge.
 class BadgeExample3 extends StatelessWidget {
   const BadgeExample3({super.key});
 
