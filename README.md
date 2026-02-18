@@ -1,39 +1,37 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# VNL Flutter UI
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+Monorepo cho UI library của VNLook (Flutter) + app docs + tài liệu hướng dẫn.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Index
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- `vnl_common_ui/`: Flutter package (UI components + theme + extensions).
+- `vnl_ui_docs/`: Flutter app hiển thị docs + component playground (tham khảo `vnl_ui_docs/vnl_docs_guide.md`).
+- `vnl_guide/`: Tài liệu Markdown (ví dụ: `vnl_guide/components_guide.md`).
 
-## Features
+File index chi tiết: `INDEX.md`.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Quick start
 
-## Getting started
+### 1) Chạy docs app
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```bash
+cd vnl_ui_docs
+flutter pub get
+flutter run -d chrome
 ```
 
-## Additional information
+### 2) Dùng `vnl_common_ui` trong project khác (path dependency)
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+Trong `pubspec.yaml`:
+
+```yaml
+dependencies:
+  vnl_common_ui:
+    path: ../vnl_common_ui
+```
+
+## Documents & guidelines
+
+- `vnl_common_ui/README.md`: Usage + entrypoints.
+- `vnl_common_ui/docs/`: Guidelines + docs index cho package.
+- `vnl_ui_docs/vnl_docs_guide.md`: Example hệ thống docs navigation/layout.

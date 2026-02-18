@@ -1,39 +1,51 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# `vnl_common_ui`
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+VNL Common UI là package Flutter cung cấp hệ thống component/theme theo phong cách Shadcn UI, dùng prefix `VNL*`/`VNLook*` để tránh nhầm với Material widgets.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
+## Entry points
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+- Preferred: `import 'package:vnl_common_ui/vnl_ui.dart';`
+- Source-of-truth exports: `import 'package:vnl_common_ui/shadcn_flutter.dart';`
+- Extensions only: `import 'package:vnl_common_ui/vnl_ui_extension.dart';`
 
-## Features
+## Install
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+### Local path (recommended trong monorepo)
 
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+  vnl_common_ui:
+    path: ../vnl_common_ui
 ```
 
-## Additional information
+### Git
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```yaml
+dependencies:
+  vnl_common_ui:
+    git:
+      url: "<your-repo-url>"
+      path: vnl_common_ui
+```
+
+## Minimal usage
+
+```dart
+import 'package:vnl_common_ui/vnl_ui.dart';
+
+void main() {
+  runApp(
+    const VNLookApp(
+      title: 'My App',
+      home: Placeholder(),
+    ),
+  );
+}
+```
+
+## Docs / Guidelines
+
+- Package docs index: `docs/INDEX.md`
+- Contribution guideline: `docs/GUIDELINES.md`
+- Component catalog (Markdown): `../vnl_guide/components_guide.md`
+- Docs app (playground): `../vnl_ui_docs/` (guide: `../vnl_ui_docs/vnl_docs_guide.md`)
